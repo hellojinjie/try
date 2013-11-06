@@ -1,12 +1,12 @@
 package com.conger.test;
 
-import java.net.URL;
+import java.net.URI;
 
 public class URLTest {
 
 	
 	public static final void main(String[] args) throws Exception {
-		URL url = new URL("http://127.0.0.1/jiji");
-		url.openStream();
+		URI uri = new URI("file://jiji/fcitx-socket-:0");
+		System.out.println(uri.toURL());
 	}
 }
