@@ -54,4 +54,8 @@ public class UserEncodeUtil {
 		int transformedCode = asciiOfC - 13 + indexOfCharacter + indexOfCharacter % 3; 
 		return Integer.toHexString(transformedCode);
 	}
+	
+	public static void main(String[] args) {
+	    System.out.println(new UserEncodeUtil().encryptUserID("Yusuke Nagakura"));
+	}
 }
