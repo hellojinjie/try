@@ -7,6 +7,10 @@ public class CloneTest implements Cloneable
     private Test ttt;
     private TestTest sss;
     
+    private TestTest[] sa;
+    private Test[] ta;
+    
+    
     public static void main(String[] args) throws CloneNotSupportedException
     {
         CloneTest ct = new CloneTest();
@@ -15,9 +19,18 @@ public class CloneTest implements Cloneable
         ct.status = "1";
         ct.sss = new TestTest();
         ct.sss.hello = 3;
+        ct.ta = new Test[]{new Test()};
+        ct.sa = new TestTest[]{new TestTest()};
+        
         System.out.println(ct);
         CloneTest t = (CloneTest) ct.clone();
         System.out.println(t);
+        
+        System.out.println(ct.ta.clone()[0]);
+        System.out.println(t.ta.clone()[0]);
+        
+        System.out.println(ct.sa[0]);
+        System.out.println(t.sa[0]);
     }
     
     public String toString()
