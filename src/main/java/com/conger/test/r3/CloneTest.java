@@ -1,5 +1,7 @@
 package com.conger.test.r3;
 
+import java.util.ArrayList;
+
 public class CloneTest implements Cloneable
 {
     private String status;
@@ -10,6 +12,13 @@ public class CloneTest implements Cloneable
     private TestTest[] sa;
     private Test[] ta;
     
+    private static final TestTest[] PRIVATE_VALUES =
+    { new TestTest() };
+
+    public static final TestTest[] values()
+    {
+        return PRIVATE_VALUES.clone();
+    }
     
     public static void main(String[] args) throws CloneNotSupportedException
     {
@@ -31,6 +40,11 @@ public class CloneTest implements Cloneable
         
         System.out.println(ct.sa[0]);
         System.out.println(t.sa[0]);
+        
+        System.out.println(CloneTest.values()[0]);
+        CloneTest.values()[0] = new TestTest();
+        System.out.println(CloneTest.values()[0]);
+        
     }
     
     public String toString()
@@ -42,7 +56,7 @@ public class CloneTest implements Cloneable
     public Object clone() throws CloneNotSupportedException
     {
         CloneTest t = (CloneTest) super.clone();
-        t.sss = t.sss.clone();
+        t.sss = (TestTest) t.sss.clone();
         return t;
     }
 }
@@ -57,9 +71,10 @@ class TestTest implements Cloneable
     public int hello = 0;
     
     @Override 
-    public TestTest clone() throws CloneNotSupportedException
+    public Object clone() throws CloneNotSupportedException
     {
-        return (TestTest) super.clone();
+        return super.clone();
     }
     
 }
+
