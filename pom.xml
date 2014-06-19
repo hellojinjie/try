@@ -110,6 +110,12 @@
 			<version>1.2.10</version>
 		</dependency>
  -->
+	<dependency>
+		<groupId>io.netty</groupId>
+		<artifactId>netty-all</artifactId>
+		<version>4.0.20.Final</version>
+	</dependency>
+ 
 		<dependency>
 			<groupId>org.iq80.snappy</groupId>
 			<artifactId>snappy</artifactId>
